@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Automatically generated-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="InjectReference_a7582c5c-e52a-44fb-8e99-b62a46cc8f6a" BeforeTargets="ResolveAssemblyReferences">
+    <ItemGroup Condition=" '$(OS)' == 'Unix' AND Exists('/Library/Frameworks') ">
+      <Content Include="$(MSBuildThisFileDirectory)..\..\runtimes\osx-x64\native\libsqlcipher.dylib">
+        <Link>libsqlcipher.dylib</Link>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <Pack>false</Pack>
+      </Content>
+    </ItemGroup>
+  </Target>
+  <PropertyGroup>
+    <ResolveAssemblyReferencesDependsOn>$(ResolveAssemblyReferencesDependsOn);InjectReference_a7582c5c-e52a-44fb-8e99-b62a46cc8f6a</ResolveAssemblyReferencesDependsOn>
+  </PropertyGroup>
+</Project>
