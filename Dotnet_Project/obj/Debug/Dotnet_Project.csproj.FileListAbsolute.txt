@@ -137,3 +137,5 @@ E:\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.csproj.CoreCompileInpu
 E:\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.csproj.CopyComplete
 E:\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.exe
 E:\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.pdb
+E:\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.csprojAssemblyReference.cache
+E:\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.Form_Data.resources

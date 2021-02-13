@@ -17,11 +17,12 @@ namespace Dotnet_Project
         {
             InitializeComponent();
         }
+        private SyncData sy = new SyncData();
         private SQLiteDatabase db = new SQLiteDatabase();
         private users urs = new users();
         private void btn_download_Click(object sender, EventArgs e)
         {
-            db.download_user();
+            sy.download_user();
         }
 
         private void btnlogin_Click(object sender, EventArgs e)
@@ -32,10 +33,10 @@ namespace Dotnet_Project
 
                 DataVariables.User_Name = user_name.Text;
                 DataVariables.Form_Login = this;
-                MessageBox.Show("User exist ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // this.Hide();
-                // frm_main obj_main = new frm_main();
-                //obj_main.Show();
+             
+                this.Hide();
+                Form_Data obj_main = new Form_Data();
+                obj_main.Show();
 
             }
             else if (user_name.Text != null && user_password.Text != null)
@@ -49,10 +50,9 @@ namespace Dotnet_Project
                 {
                     DataVariables.User_Name = user_name.Text;
                     DataVariables.Form_Login = this;
-                   // this.Hide();
-                    //frm_main obj_main = new frm_main();
-                    //obj_main.Show();
-                    MessageBox.Show("User exist ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                    Form_Data obj_main = new Form_Data();
+                    obj_main.Show();
 
                 }
                 else

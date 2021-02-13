@@ -61,50 +61,13 @@ namespace Dotnet_Project
             + "_id INTEGER PRIMARY KEY AUTOINCREMENT,"
             + "_uid TEXT,"
             + "appversion TEXT,"
-            + "cr01 TEXT,"
-            + "cr02 TEXT,"
-            + "cr03 TEXT,"
-            + "cr04 TEXT,"
-            + "cr05 TEXT,"
-            + "cr06 TEXT,"
-            + "cr07 TEXT,"
-            + "cr08d TEXT,"
-            + "cr08m TEXT,"
-            + "cr08y TEXT,"
-            + "cr09 TEXT,"
-            + "cr10 TEXT,"
-            + "cr11 TEXT,"
-            + "cr12 TEXT,"
-            + "cr13 TEXT,"
-            + "cr14d TEXT,"
-            + "cr15m TEXT,"
-            + "cr15y TEXT,"
-            + "cr16 TEXT,"
-            + "cr17 TEXT,"
-            + "cr18 TEXT,"
-            + "cr19 TEXT,"
-            + "cr20 TEXT,"
-            + "cr21 TEXT,"
-            + "cr22 TEXT,"
-            + "cr23 TEXT,"
-            + "cr24a TEXT,"
-            + "cr24b TEXT,"
-            + "cr24c TEXT,"
-            + "cr24d TEXT,"
-            + "cr24e TEXT,"
-            + "cr24f TEXT,"
-            + "cr25 TEXT,"
-            + "cr26 TEXT,"
-            + "cr27a TEXT,"
-            + "cr27b TEXT,"
-            + "cr27c TEXT,"
-            + "cr28a TEXT,"
-            + "cr28b TEXT,"
-            + "cr28c TEXT,"
-            + "cr28d TEXT,"
-            + "cr28e TEXT,"
-            + "cr28f TEXT,"
-            + "cr28fx TEXT,"
+            + "f1 TEXT,"
+            + "f2 TEXT,"
+            + "f3 TEXT,"
+            + "f4 TEXT,"
+            + "f5 TEXT,"
+            + "f6 TEXT,"
+            + "f7 TEXT,"
             + "deviceid TEXT,"
             + "endingdatetime TEXT,"
             + "gpsacc TEXT,"
@@ -142,7 +105,7 @@ namespace Dotnet_Project
         public static SqliteDataReader r;
 
         public List<villages> village_obj;
-        public List<users> user_obj;
+       
 
         public SQLiteDatabase()
         {
@@ -302,7 +265,7 @@ namespace Dotnet_Project
 
         //            using (var cmd = con.CreateCommand())
         //            {
-        //                cmd.CommandText = "INSERT INTO forms (cr01,cr02,cr03,cr04,cr05,cr06,cr07,cr08d,cr08m,cr08y,cr09,cr10,cr11,cr12,cr13,cr14d,cr15m,cr15y,cr16,cr17,cr18,cr19,cr20,cr21,cr22,cr23,cr24a,cr24b,cr24c,cr24d,cr24e,cr24f,cr25,cr26,cr27a,cr27b,cr27c,cr28a,cr28b,cr28c,cr28d,cr28e,cr28f,cr28fx,endingdatetime,username) VALUES (@cr01,@cr02,@cr03,@cr04,@cr05,@cr06,@cr07,@cr08d,@cr08m,@cr08y,@cr09,@cr10,@cr11,@cr12,@cr13,@cr14d,@cr15m,@cr15y,@cr16,@cr17,@cr18,@cr19,@cr20,@cr21,@cr22,@cr23,@cr24a,@cr24b,@cr24c,@cr24d,@cr24e,@cr24f,@cr25,@cr26,@cr27a,@cr27b,@cr27c,@cr28a,@cr28b,@cr28c,@cr28d,@cr28e,@cr28f,@cr28fx,@endingdatetime,@username)";
+        //                cmd.CommandText = "INSERT INTO forms (cr01,cr02,cr03,cr04,cr05,cr06,cr07,endingdatetime,username) VALUES (@cr01,@cr02,@cr03,@cr04,@cr05,@cr06,@cr07,@endingdatetime,@username)";
 
         //                for (int i = 0; i < forms_data.Count; i++)
         //                {
@@ -314,43 +277,7 @@ namespace Dotnet_Project
         //                    cmd.Parameters.AddWithValue("cr05", forms_data.cr05);
         //                    cmd.Parameters.AddWithValue("cr06", forms_data.cr06);
         //                    cmd.Parameters.AddWithValue("cr07", forms_data.cr07);
-        //                    cmd.Parameters.AddWithValue("cr08d", forms_data.cr08d);
-        //                    cmd.Parameters.AddWithValue("cr08m", forms_data.cr08m);
-        //                    cmd.Parameters.AddWithValue("cr08y", forms_data.cr08y);
-        //                    cmd.Parameters.AddWithValue("cr09", forms_data.cr09);
-        //                    cmd.Parameters.AddWithValue("cr10", forms_data.cr10);
-        //                    cmd.Parameters.AddWithValue("cr11", forms_data.cr11);
-        //                    cmd.Parameters.AddWithValue("cr12", forms_data.cr12);
-        //                    cmd.Parameters.AddWithValue("cr13", forms_data.cr13);
-        //                    cmd.Parameters.AddWithValue("cr14d", forms_data.cr14d);
-        //                    cmd.Parameters.AddWithValue("cr15m", forms_data.cr15m);
-        //                    cmd.Parameters.AddWithValue("cr15y", forms_data.cr15y);
-        //                    cmd.Parameters.AddWithValue("cr16", forms_data.cr16);
-        //                    cmd.Parameters.AddWithValue("cr17", forms_data.cr17);
-        //                    cmd.Parameters.AddWithValue("cr18", forms_data.cr18);
-        //                    cmd.Parameters.AddWithValue("cr19", forms_data.cr19);
-        //                    cmd.Parameters.AddWithValue("cr20", forms_data.cr20);
-        //                    cmd.Parameters.AddWithValue("cr21", forms_data.cr21);
-        //                    cmd.Parameters.AddWithValue("cr22", forms_data.cr22);
-        //                    cmd.Parameters.AddWithValue("cr23", forms_data.cr23);
-        //                    cmd.Parameters.AddWithValue("cr24a", forms_data.cr24a);
-        //                    cmd.Parameters.AddWithValue("cr24b", forms_data.cr24b);
-        //                    cmd.Parameters.AddWithValue("cr24c", forms_data.cr24c);
-        //                    cmd.Parameters.AddWithValue("cr24d", forms_data.cr24d);
-        //                    cmd.Parameters.AddWithValue("cr24e", forms_data.cr24e);
-        //                    cmd.Parameters.AddWithValue("cr24f", forms_data.cr24f);
-        //                    cmd.Parameters.AddWithValue("cr25", forms_data.cr25);
-        //                    cmd.Parameters.AddWithValue("cr26", forms_data.cr26);
-        //                    cmd.Parameters.AddWithValue("cr27a", forms_data.cr27a);
-        //                    cmd.Parameters.AddWithValue("cr27b", forms_data.cr27b);
-        //                    cmd.Parameters.AddWithValue("cr27c", forms_data.cr27c);
-        //                    cmd.Parameters.AddWithValue("cr28a", forms_data.cr28a);
-        //                    cmd.Parameters.AddWithValue("cr28b", forms_data.cr28b);
-        //                    cmd.Parameters.AddWithValue("cr28c", forms_data.cr28c);
-        //                    cmd.Parameters.AddWithValue("cr28d", forms_data.cr28d);
-        //                    cmd.Parameters.AddWithValue("cr28e", forms_data.cr28e);
-        //                    cmd.Parameters.AddWithValue("cr28f", forms_data.cr28f);
-        //                    cmd.Parameters.AddWithValue("cr28fx", forms_data.cr28fx);
+        //                   
         //                    cmd.Parameters.AddWithValue("deviceid", forms_data.deviceid);
         //                    cmd.Parameters.AddWithValue("endingdatetime", forms_data.endingdatetime);
         //                    cmd.Parameters.AddWithValue("gpsacc", forms_data.gpsacc);
@@ -697,63 +624,13 @@ namespace Dotnet_Project
 
 
 
-        public void download_user()
+        public void insert_user(List<users> d_user_obj)
         {
+           
+
             try
             {
-               // System.Diagnostics.Debug.WriteLine("user start");
-
-
-
-                var user_var = "{\"table\":\"users\"}";
-
-
-
-                HttpWebRequest webRequest;
-
-                string requestParams = user_var.ToString();
-
-                webRequest = (HttpWebRequest)WebRequest.Create("http://f38158/casi_gm/api/getdata.php");
-
-                webRequest.Method = "POST";
-                webRequest.ContentType = "application/json";
-
-                byte[] byteArray = Encoding.UTF8.GetBytes(requestParams);
-                webRequest.ContentLength = byteArray.Length;
-                Stream requestStream = webRequest.GetRequestStream();
-
-                requestStream.Write(byteArray, 0, byteArray.Length);
-
-
-                // Get the response.
-                WebResponse response = webRequest.GetResponse();
-
-                Stream responseStream = response.GetResponseStream();
-
-                StreamReader rdr = new StreamReader(responseStream, Encoding.UTF8);
-                string Json = rdr.ReadToEnd(); // response from server
-                user_obj = JsonConvert.DeserializeObject<List<users>>(Json);
-
-
-            }
-            catch (Exception ex)
-            {
-
-                if (ex.Message == "The remote name could not be resolved: 'f38158'")
-                {
-                    MessageBox.Show("Please Open Record", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-
-
-
-            finally
-            {
-
+               
 
                 using (con)
                 {
@@ -783,47 +660,51 @@ namespace Dotnet_Project
 
 
 
-             
 
-                    using (con)
+
+                using (con)
+                {
+                    try
                     {
-                        try
+                        con.Open();
+
+
+                        using (var cmd = con.CreateCommand())
                         {
-                            con.Open();
-
-
-                            using (var cmd = con.CreateCommand())
+                            for (int a = 0; a <= d_user_obj.Count - 1; a++)
                             {
-                                for (int a = 0; a <= user_obj.Count - 1; a++) { 
-                                    cmd.CommandText= "insert into users(username,password,full_name)  values('" + user_obj[a].username + "','" + user_obj[a].password + "','" + user_obj[a].full_name + "')";
+                                cmd.CommandText = "insert into users(username,password,full_name)  values('" + d_user_obj[a].username + "','" + d_user_obj[a].password + "','" + d_user_obj[a].full_name + "')";
 
 
                                 cmd.ExecuteNonQuery();
 
-                                }
                             }
+                        }
 
-                            con.Close();
-                        }
-                        catch (Exception e)
-                        {
-                            MessageBox.Show("ERROR!", "Form was not saved. " + "\n" + e.Message);
-                        }
+                        con.Close();
                     }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("ERROR!", "Form was not saved. " + "\n" + e.Message);
+                    }
+                }
 
-                
-              //  MessageBox.Show("Data Download", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-               
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message == "The remote name could not be resolved: 'f38158'")
+                {
+                    MessageBox.Show("Please Open Record", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
 
-
-
-
-            //MessageBox.Show("Data Download", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-           // System.Diagnostics.Debug.WriteLine("villages end");
 
 
         }
