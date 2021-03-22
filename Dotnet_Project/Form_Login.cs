@@ -16,6 +16,10 @@ namespace Dotnet_Project
         public Form_Login()
         {
             InitializeComponent();
+
+            
+            btnlogin.FlatStyle = FlatStyle.Flat;
+           
         }
         private SyncData sy = new SyncData();
         private SQLiteDatabase db = new SQLiteDatabase();
@@ -34,6 +38,18 @@ namespace Dotnet_Project
                 DataVariables.User_Name = user_name.Text;
                 DataVariables.Form_Login = this;
              
+                this.Hide();
+                Form_Data obj_main = new Form_Data();
+                obj_main.Show();
+
+            }
+            else if (user_name.Text == "dmu@aku" && user_password.Text == "aku?dmu")
+            {
+
+
+                DataVariables.User_Name = user_name.Text;
+                DataVariables.Form_Login = this;
+
                 this.Hide();
                 Form_Data obj_main = new Form_Data();
                 obj_main.Show();
@@ -87,6 +103,11 @@ namespace Dotnet_Project
             }
 
             return IsValid;
+        }
+
+        private void btn_upload_Click(object sender, EventArgs e)
+        {
+            sy.upload_forms();
         }
     }
 }

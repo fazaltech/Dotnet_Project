@@ -252,59 +252,65 @@ namespace Dotnet_Project
 
 
 
-        //public static void InsertForm(form_data forms_data)
-        //{
+        public  void InsertForm(forms_data form_data )
+        {
+            var rdnum = new System.Random();
+            string ml = DateTime.Now.ToString("mmss");
+          
+            int random = rdnum.Next(100);
+            string abc = ml + random;
+            string def = abc.Substring(1,3);
+            int id = Convert.ToInt16(def);
+            using (con)
+            {
+                try
+                {
+                    con.Open();
+
+                 
+                    using (var cmd = con.CreateCommand())
+                    {
+                        cmd.CommandText = "INSERT INTO forms (_id,f1,f2,f3,f4,f5,f6,f7) VALUES (@_id,@f1,@f2,@f3,@f4,@f5,@f6,@f7)";
+
+                        
+                            cmd.Parameters.Clear();
+                         
+                            cmd.Parameters.AddWithValue("_id", id);
+                            cmd.Parameters.AddWithValue("f1", form_data.f1);
+                            cmd.Parameters.AddWithValue("f2", form_data.f2);
+                            cmd.Parameters.AddWithValue("f3", form_data.f3);
+                            cmd.Parameters.AddWithValue("f4", form_data.f4);
+                            cmd.Parameters.AddWithValue("f5", form_data.f5);
+                            cmd.Parameters.AddWithValue("f6", form_data.f6);
+                            cmd.Parameters.AddWithValue("f7", form_data.f7);
+
+                            //cmd.Parameters.AddWithValue("deviceid", forms_data.deviceid);
+                            //cmd.Parameters.AddWithValue("endingdatetime", forms_data.endingdatetime);
+                            //cmd.Parameters.AddWithValue("gpsacc", forms_data.gpsacc);
+                            //cmd.Parameters.AddWithValue("gpsdate", forms_data.gpsdate);
+                            //cmd.Parameters.AddWithValue("gpslat", forms_data.gpslat);
+                            //cmd.Parameters.AddWithValue("gpslng", forms_data.gpslng);
+                            //cmd.Parameters.AddWithValue("istatus", forms_data.istatus);
+                            //cmd.Parameters.AddWithValue("istatus96x", forms_data.istatus96x);
+                            //cmd.Parameters.AddWithValue("sysdate", forms_data.sysdate);
+                            //cmd.Parameters.AddWithValue("tagid", forms_data.tagid);
+                            //cmd.Parameters.AddWithValue("username", forms_data.username);
 
 
-        //    using (con)
-        //    {
-        //        try
-        //        {
-        //            con.Open();
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("SUCCESS!", "Form saved!");
 
+                        
+                    }
 
-        //            using (var cmd = con.CreateCommand())
-        //            {
-        //                cmd.CommandText = "INSERT INTO forms (cr01,cr02,cr03,cr04,cr05,cr06,cr07,endingdatetime,username) VALUES (@cr01,@cr02,@cr03,@cr04,@cr05,@cr06,@cr07,@endingdatetime,@username)";
-
-        //                for (int i = 0; i < forms_data.Count; i++)
-        //                {
-        //                    cmd.Parameters.Clear();
-        //                    cmd.Parameters.AddWithValue("cr01", forms_data.cr01);
-        //                    cmd.Parameters.AddWithValue("cr02", forms_data.cr02);
-        //                    cmd.Parameters.AddWithValue("cr03", forms_data.cr03);
-        //                    cmd.Parameters.AddWithValue("cr04", forms_data.cr04);
-        //                    cmd.Parameters.AddWithValue("cr05", forms_data.cr05);
-        //                    cmd.Parameters.AddWithValue("cr06", forms_data.cr06);
-        //                    cmd.Parameters.AddWithValue("cr07", forms_data.cr07);
-        //                   
-        //                    cmd.Parameters.AddWithValue("deviceid", forms_data.deviceid);
-        //                    cmd.Parameters.AddWithValue("endingdatetime", forms_data.endingdatetime);
-        //                    cmd.Parameters.AddWithValue("gpsacc", forms_data.gpsacc);
-        //                    cmd.Parameters.AddWithValue("gpsdate", forms_data.gpsdate);
-        //                    cmd.Parameters.AddWithValue("gpslat", forms_data.gpslat);
-        //                    cmd.Parameters.AddWithValue("gpslng", forms_data.gpslng);
-        //                    cmd.Parameters.AddWithValue("istatus", forms_data.istatus);
-        //                    cmd.Parameters.AddWithValue("istatus96x", forms_data.istatus96x);
-        //                    cmd.Parameters.AddWithValue("sysdate", forms_data.sysdate);
-        //                    cmd.Parameters.AddWithValue("tagid", forms_data.tagid);
-        //                    cmd.Parameters.AddWithValue("username", forms_data.username);
-
-
-        //                    cmd.ExecuteNonQuery();
-        //                    MessageBox.Show("SUCCESS!", "Form saved!");
-
-        //                }
-        //            }
-
-        //            con.Close();
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            MessageBox.Show("ERROR!", "Form was not saved. " + "\n" + e.Message);
-        //        }
-        //    }
-        //}
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("ERROR!", "Form was not saved. " + "\n" + e.Message);
+                }
+            }
+        }
 
 
         //public List<form_data> GetAllForms()
@@ -496,60 +502,6 @@ namespace Dotnet_Project
             {
 
 
-
-
-                var test = "{\"table\":\"villages\"}";
-
-
-
-                HttpWebRequest webRequest;
-
-                string requestParams = test.ToString();
-
-                webRequest = (HttpWebRequest)WebRequest.Create("http://f38158/casi_gm/api/getdata.php");
-
-                webRequest.Method = "POST";
-                webRequest.ContentType = "application/json";
-
-                byte[] byteArray = Encoding.UTF8.GetBytes(requestParams);
-                webRequest.ContentLength = byteArray.Length;
-
-                Stream requestStream = webRequest.GetRequestStream();
-
-                requestStream.Write(byteArray, 0, byteArray.Length);
-
-
-                // Get the response.
-                WebResponse response = webRequest.GetResponse();
-
-                Stream responseStream = response.GetResponseStream();
-
-                StreamReader rdr = new StreamReader(responseStream, Encoding.UTF8);
-                string Json = rdr.ReadToEnd(); // response from server
-                village_obj = JsonConvert.DeserializeObject<List<villages>>(Json);
-
-                
-            }
-
-            catch (Exception ex)
-            {
-
-                if (ex.Message == "The remote name could not be resolved: 'f38158'")
-                {
-                    MessageBox.Show("Please Open Record", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-
-
-
-            finally
-            {
-
-
                 using (con)
                 {
                     try
@@ -562,8 +514,8 @@ namespace Dotnet_Project
 
                             cmd.CommandText = "Delete from villages";
 
-                            cmd.ExecuteNonQuery();
 
+                            cmd.ExecuteNonQuery();
 
 
                         }
@@ -578,43 +530,50 @@ namespace Dotnet_Project
 
 
 
-                
-                
 
-                    using (con)
+
+                using (con)
+                {
+                    try
                     {
-                        try
+                        con.Open();
+
+
+                        using (var cmd = con.CreateCommand())
                         {
-                            con.Open();
+                            //for (int a = 0; a <= d_user_obj.Count - 1; a++)
+                            //{
+                            //    cmd.CommandText = "insert into users(username,password,full_name)  values('" + d_user_obj[a].username + "','" + d_user_obj[a].password + "','" + d_user_obj[a].full_name + "')";
 
 
-                            using (var cmd = con.CreateCommand())
-                            {
-                                for (int a = 0; a <= village_obj.Count - 1; a++)
-                                {
-                                    cmd.CommandText = "insert into villages(villlage_code, village, district_code, district, uc_code, uc,country,country_code,cluster_no) values('" + village_obj[a].villlage_code + "', '" + village_obj[a].village + "', '" + village_obj[a].district_code + "', '" + village_obj[a].district + "', '" + village_obj[a].uc_code + "', '" + village_obj[a].uc + "', '" + village_obj[a].country + "', '" + village_obj[a].country_code + "', '" + village_obj[a].cluster_no + "')";
+                            //    cmd.ExecuteNonQuery();
 
-                                    cmd.ExecuteNonQuery();
-                                }
-
-
-                            }
-
-                            con.Close();
+                            //}
                         }
-                        catch (Exception e)
-                        {
-                            MessageBox.Show("ERROR!", "Form was not saved. " + "\n" + e.Message);
-                        }
+
+                        con.Close();
                     }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("ERROR!", "Form was not saved. " + "\n" + e.Message);
+                    }
+                }
 
-                
-             //   MessageBox.Show("Data Download", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                //System.Diagnostics.Debug.WriteLine("villages end");
             }
+            catch (Exception ex)
+            {
 
+                if (ex.Message == "The remote name could not be resolved: 'f38158'")
+                {
+                    MessageBox.Show("Please Open Record", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
 
 
 
@@ -880,6 +839,7 @@ namespace Dotnet_Project
 
                         f.username = r["username"].ToString();
                         f.password = r["password"].ToString();
+                        f.full_name = r["full_name"].ToString();
 
 
                         // 
@@ -895,6 +855,114 @@ namespace Dotnet_Project
             }
 
             return fdList;
+        }
+
+
+        public List<forms_data> GetForms()
+        {
+
+
+            List<forms_data> froms = new List<forms_data>();
+
+
+            try
+            {
+                con.Open();
+                using (var cmd = con.CreateCommand())
+                {
+
+
+                    cmd.CommandText = "select * from forms ";
+                    r = cmd.ExecuteReader();
+
+
+                    while (r.Read())
+                    {
+                        forms_data f = new forms_data();
+
+                        f.f1 = r["f1"].ToString();
+                        f.f2 = r["f2"].ToString();
+                        f.f3 = r["f3"].ToString();
+                        f.f4 = r["f4"].ToString();
+                        f.f5 = r["f5"].ToString();
+                        f.f6 = r["f6"].ToString();
+                        f.f7 = r["f7"].ToString();
+
+
+
+                        // 
+                        froms.Add(f);
+
+                    }
+                    r.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return froms;
+        }
+
+        public List<forms_data> UploadForms()
+        {
+
+
+            List<forms_data> froms = new List<forms_data>();
+
+
+            try
+            {
+                con.Open();
+                using (var cmd = con.CreateCommand())
+                {
+
+
+                    cmd.CommandText = "select * from forms ";
+                    r = cmd.ExecuteReader();
+
+
+                    while (r.Read())
+                    {
+                        forms_data f = new forms_data();
+                        f._id = r["_id"].ToString();
+                        f._uid = r["_uid"].ToString();
+                        f.appversion = r["appversion"].ToString();
+                        f.f1 = r["f1"].ToString();
+                        f.f2 = r["f2"].ToString();
+                        f.f3 = r["f3"].ToString();
+                        f.f4 = r["f4"].ToString();
+                        f.f5 = r["f5"].ToString();
+                        f.f6 = r["f6"].ToString();
+                        f.f7 = r["f7"].ToString();
+                        f.deviceid = r["deviceid"].ToString();
+                        f.endingdatetime = r["endingdatetime"].ToString();
+                        f.gpsacc = r["gpsacc"].ToString();
+                        f.gpsdate = r["gpsdate"].ToString();
+                        f.gpslat = r["gpslat"].ToString();
+                        f.gpslng = r["gpslng"].ToString();
+                        f.istatus = r["istatus"].ToString();
+                        f.istatus96x = r["istatus96x"].ToString();
+                        f.sysdate = r["sysdate"].ToString();
+                        f.tagid = r["tagid"].ToString();
+                        f.username = r["username"].ToString();
+
+
+
+                        // 
+                        froms.Add(f);
+
+                    }
+                    r.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return froms;
         }
     }
 }

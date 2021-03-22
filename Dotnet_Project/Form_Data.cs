@@ -18,8 +18,9 @@ namespace Dotnet_Project
             InitializeComponent();
             dateTime_dob.MaxDate = DateTime.Today;
             control_value();
+            button_vis();
         }
-
+        private SQLiteDatabase db = new SQLiteDatabase();
         private void text_childname_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsLetter(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
@@ -180,7 +181,7 @@ namespace Dotnet_Project
             fr.f5 = f5;
             fr.f6 = f6;
             fr.f7 = f7;
-
+            db.InsertForm(fr);
 
         }
 
@@ -188,9 +189,43 @@ namespace Dotnet_Project
         {
             if (validation())
             {
+                Insert_Form();
+                DataVariables.Form_Data = this;
+                this.Hide();
 
-
+               Form_Data fl = new Form_Data();
+                fl.Show();
             }
+        }
+
+
+        public void button_vis()
+        {
+            string us = DataVariables.User_Name;
+
+            if (us == "dmu@aku")
+            {
+                btn_data.Visible = true;
+            }
+
+        }
+
+        private void btn_data_Click(object sender, EventArgs e)
+        {
+            DataVariables.Form_Data = this;
+            this.Hide();
+
+            Form_Table ft = new Form_Table();
+            ft.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DataVariables.Form_Data = this;
+            this.Hide();
+
+            Form_Login ft = new Form_Login();
+            ft.Show();
         }
     }
 

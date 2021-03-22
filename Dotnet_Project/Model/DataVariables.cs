@@ -12,6 +12,8 @@ namespace Dotnet_Project.Model
 
 
         static Form formLogin;
+        static Form formData;
+        static Form formtable;
 
         static string username;
 
@@ -30,6 +32,19 @@ namespace Dotnet_Project.Model
         }
 
 
+        public static Form Form_Data
+        {
+            get
+            {
+                return formData;
+            }
+
+            set
+            {
+                formData = value;
+            }
+        }
+
 
         public static string User_Name
         {
@@ -43,5 +58,20 @@ namespace Dotnet_Project.Model
                 username = value;
             }
         }
+
+
+        public static Form Form_Table
+        {
+            get
+            {
+                return formtable;
+            }
+
+            set
+            {
+                formtable = value;
+            }
+        }
+
     }
 }

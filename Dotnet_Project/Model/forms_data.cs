@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dotnet_Project.Model
 {
-    class forms
+    class forms_data
     {
         //public string _id { get; set; }
         //public string _uid { get; set; }
@@ -68,6 +68,10 @@ namespace Dotnet_Project.Model
         //public string username { get; set; }
 
 
+        public string _id { get; set; }
+        public string _uid { get; set; }
+        public string appversion { get; set; }
+
         public string f1  { get; set; }
         public string f2  { get; set; }
         public string f3  { get; set; }
@@ -75,5 +79,17 @@ namespace Dotnet_Project.Model
         public string f5  { get; set; }
         public string f6  { get; set; }
         public string f7 { get; set; }
+
+        public string deviceid { get; set; }
+        public string endingdatetime { get; set; }
+        public string gpsacc { get; set; }
+        public string gpsdate { get; set; }
+        public string gpslat { get; set; }
+        public string gpslng { get; set; }
+        public string istatus { get; set; }
+        public string istatus96x { get; set; }
+        public string sysdate { get; set; }
+        public string tagid { get; set; }
+        public string username { get; set; }
     }
 }

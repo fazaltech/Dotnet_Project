@@ -83,5 +83,57 @@ namespace Dotnet_Project
             }
 
         }
+
+        public void upload_forms()
+        {
+            List<forms_data> datas = new List<forms_data>();
+            datas = db.UploadForms();
+
+            var data_obj = JsonConvert.SerializeObject(datas);
+
+
+            var table_var = "[{\"table\":\"forms\", \"check\":\"users\"}, " + data_obj + "]";
+
+            string requestParams = table_var.ToString();
+            HttpWebRequest webRequest;
+
+
+
+            webRequest = (HttpWebRequest)WebRequest.Create("http://f38158/casi_gm/api/sync.php");
+
+            webRequest.Method = "POST";
+            webRequest.UserAgent = "POST";
+            webRequest.ContentType = "application/json";
+
+
+            //  byte[] byteArray = Encoding.UTF8.GetBytes(requestParams);
+            using (var streamWriter = new StreamWriter(webRequest.GetRequestStream()))
+            {
+                streamWriter.Write(requestParams);
+            }
+
+
+
+            var result = "";
+
+            var httpResponse = (HttpWebResponse)webRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+
+
+            if (result == null)
+            {
+                MessageBox.Show("Data Upload", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Data Upload Failed" + result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+        }
     }
 }
