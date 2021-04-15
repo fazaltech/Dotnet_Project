@@ -89,6 +89,8 @@ namespace Dotnet_Project.Model
         public string istatus { get; set; }
         public string istatus96x { get; set; }
         public string sysdate { get; set; }
+        //public string synced { get; set; }
+        //public string synced_date { get; set; }
         public string tagid { get; set; }
         public string username { get; set; }
     }

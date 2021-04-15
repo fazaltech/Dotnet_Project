@@ -77,6 +77,8 @@ namespace Dotnet_Project
             + "istatus TEXT,"
             + "istatus96x TEXT,"
             + "sysdate TEXT,"
+            + "synced TEXT,"
+            + "synced_date TEXT,"
             + "tagid TEXT,"
             + "username TEXT" + " );";
 
@@ -919,7 +921,7 @@ namespace Dotnet_Project
                 {
 
 
-                    cmd.CommandText = "select * from forms ";
+                    cmd.CommandText = "select * from forms where synced is Null";
                     r = cmd.ExecuteReader();
 
 
@@ -945,6 +947,8 @@ namespace Dotnet_Project
                         f.istatus = r["istatus"].ToString();
                         f.istatus96x = r["istatus96x"].ToString();
                         f.sysdate = r["sysdate"].ToString();
+                       
+                       
                         f.tagid = r["tagid"].ToString();
                         f.username = r["username"].ToString();
 
@@ -980,6 +984,33 @@ namespace Dotnet_Project
 
 
              
+                    r.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+
+
+        public void update_status(int id)
+        {
+            DateTime datetime=DateTime.Now;
+            try
+            {
+                con.Open();
+                using (var cmd = con.CreateCommand())
+                {
+
+
+                    cmd.CommandText = "Update forms set synced='"+1+"',synced_date='"+ datetime.ToString("yyyy-MM-dd HH:mm:ss.fff") + "' where _id="+ id  ;
+                    r = cmd.ExecuteReader();
+
+
+
                     r.Close();
                 }
             }

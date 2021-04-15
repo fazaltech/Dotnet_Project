@@ -90,105 +90,128 @@ namespace Dotnet_Project
         {
             List<forms_data> datas = new List<forms_data>();
             datas = db.UploadForms();
-
-            var data_obj = JsonConvert.SerializeObject(datas);
-
-
-            var table_var = "[{\"table\":\"forms\", \"check\":\"users\"}, " + data_obj + "]";
-
-            string requestParams = table_var.ToString();
-            HttpWebRequest webRequest;
-
-
-
-            webRequest = (HttpWebRequest)WebRequest.Create("http://f38158/casi_gm/api/sync.php");
-
-            webRequest.Method = "POST";
-            webRequest.UserAgent = "POST";
-            webRequest.ContentType = "application/json";
-
-
-            //  byte[] byteArray = Encoding.UTF8.GetBytes(requestParams);
-            using (var streamWriter = new StreamWriter(webRequest.GetRequestStream()))
+            int total=datas.Count;
+            if (datas.Any())
             {
-                streamWriter.Write(requestParams);
-            }
+                var data_obj = JsonConvert.SerializeObject(datas);
+
+
+                var table_var = "[{\"table\":\"forms\", \"check\":\"users\"}, " + data_obj + "]";
+
+                string requestParams = table_var.ToString();
+                HttpWebRequest webRequest;
 
 
 
-            dynamic result = "";
+                webRequest = (HttpWebRequest)WebRequest.Create("http://f38158/casi_gm/api/sync.php");
 
-            var httpResponse = (HttpWebResponse)webRequest.GetResponse();
-            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-            {
-                result = streamReader.ReadToEnd();
-            }
+                webRequest.Method = "POST";
+                webRequest.UserAgent = "POST";
+                webRequest.ContentType = "application/json";
 
 
+                //  byte[] byteArray = Encoding.UTF8.GetBytes(requestParams);
+                using (var streamWriter = new StreamWriter(webRequest.GetRequestStream()))
+                {
+                    streamWriter.Write(requestParams);
+                }
+
+
+
+                dynamic result = "";
+
+                var httpResponse = (HttpWebResponse)webRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = streamReader.ReadToEnd();
+                }
 
 
 
 
-            
 
-            var message = JsonConvert.DeserializeObject<List<Item>>(result);
 
-            var errormeg ="";
-            var statusmessage = "";
-            int errcount=0;
-            int statuscount = 0;
-            try
-            {
-               
-                foreach (var item in message)
+
+
+                var message = JsonConvert.DeserializeObject<List<Item>>(result);
+
+                var errormeg = "";
+                var statusmessage = "";
+
+                int errcount = 0;
+                int statuscount = 0;
+                int dupliatecount = 0;
+                string id;
+                List<string> errormsg=new List<string>();
+                var displaymessage = "";
+                try
                 {
 
-                    //messg = "\n error: "+item.error;
-                    //messg += "\n message: " + item.message;
-                    //messg += "\n status: " + item.status;
-
-                    errormeg = item.error;
-                    statusmessage = item.status;
-
-                    if (errormeg == "1")
+                    foreach (var item in message)
                     {
-                        errcount ++;
+
+                        
+
+                        errormeg = item.error;
+                        statusmessage = item.status;
+
+
+                        if (errormeg == "1")
+                        {
+                            errcount++;
+                            errormsg.Add("ID: "+item.id+ " : " +item.message);
+
+                        }
+
+                        if (statusmessage == "1")
+                        {
+                            statuscount++;
+                            id =item.id;
+
+                            db.update_status(Int16.Parse(id));
+                        }
+                        if (statusmessage == "2")
+                        {
+                            dupliatecount++;
+                            id = item.id;
+
+                            db.update_status(Int16.Parse(id));
+                        }
+
+
+
                     }
-
-                    if (statusmessage == "1")
-                    {
-                        statuscount++;
+                    displaymessage = "\n  Total:" + total + "\n  Duplicate:" + dupliatecount + "\n  Successfull:" + statuscount + "\n  Error:" + errcount;
+                    foreach (var errtext in errormsg) { 
+                    displaymessage += "\n"+errtext;
                     }
-
-
-
+                    MessageBox.Show("Data Upload" + displaymessage, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
-                MessageBox.Show("Data Upload" + errormeg, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                db.Del_Forms();
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Data Upload Failed" + ex + result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+
+
+
+                //if (result == null)
+                //{
+                //    MessageBox.Show("Data Upload" + result, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    db.Del_Forms();
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Data Upload Failed" + result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
+
 
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Data Upload Failed" + ex + result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else {
+                MessageBox.Show("No new record upload" , "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-
-
-
-
-            //if (result == null)
-            //{
-            //    MessageBox.Show("Data Upload" + result, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    db.Del_Forms();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Data Upload Failed" + result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-
-
-
         }
 
         public class Class1
@@ -208,7 +231,7 @@ namespace Dotnet_Project
             public string error { get; set; }
             public string message { get; set; }
             public string status { get; set; }
-           // public string id { get; set; }
+            public string id { get; set; }
         }
 
 
