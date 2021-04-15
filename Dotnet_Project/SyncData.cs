@@ -8,6 +8,8 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Web.Script.Serialization;
+using Newtonsoft.Json.Linq;
 
 namespace Dotnet_Project
 {
@@ -114,7 +116,7 @@ namespace Dotnet_Project
 
 
 
-            var result = "";
+            dynamic result = "";
 
             var httpResponse = (HttpWebResponse)webRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
@@ -123,17 +125,93 @@ namespace Dotnet_Project
             }
 
 
-            if (result == null)
+
+
+
+
+            
+
+            var message = JsonConvert.DeserializeObject<List<Item>>(result);
+
+            var errormeg ="";
+            var statusmessage = "";
+            int errcount=0;
+            int statuscount = 0;
+            try
             {
-                MessageBox.Show("Data Upload", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
+                foreach (var item in message)
+                {
+
+                    //messg = "\n error: "+item.error;
+                    //messg += "\n message: " + item.message;
+                    //messg += "\n status: " + item.status;
+
+                    errormeg = item.error;
+                    statusmessage = item.status;
+
+                    if (errormeg == "1")
+                    {
+                        errcount ++;
+                    }
+
+                    if (statusmessage == "1")
+                    {
+                        statuscount++;
+                    }
+
+
+
+
+                }
+                MessageBox.Show("Data Upload" + errormeg, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                db.Del_Forms();
+
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Data Upload Failed" + result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Data Upload Failed" + ex + result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
+
+
+
+            //if (result == null)
+            //{
+            //    MessageBox.Show("Data Upload" + result, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    db.Del_Forms();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Data Upload Failed" + result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
 
 
 
         }
+
+        public class Class1
+        {
+            public string error { get; set; }
+
+        }
+
+
+
+        public class RootObject
+        {
+            public List<Item> response { get; set; }
+        }
+        public class Item
+        {
+            public string error { get; set; }
+            public string message { get; set; }
+            public string status { get; set; }
+           // public string id { get; set; }
+        }
+
+
+
     }
 }

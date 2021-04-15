@@ -964,5 +964,30 @@ namespace Dotnet_Project
 
             return froms;
         }
+
+
+        public void Del_Forms()
+        {
+             try
+            {
+                con.Open();
+                using (var cmd = con.CreateCommand())
+                {
+
+
+                    cmd.CommandText = "delete  from forms ";
+                    r = cmd.ExecuteReader();
+
+
+             
+                    r.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }
