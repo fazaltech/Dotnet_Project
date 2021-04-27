@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace Dotnet_Project
 {
-    public partial class Form_Baseline : Form
+    public partial class SubFormSectionB : Form
     {
-        public Form_Baseline()
+        public SubFormSectionB()
         {
             InitializeComponent();
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

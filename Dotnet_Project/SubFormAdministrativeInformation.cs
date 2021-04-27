@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace Dotnet_Project
 {
-    public partial class Form_Baseline : Form
+    public partial class SubFormAdministrativeInformation : Form
     {
-        public Form_Baseline()
+        public SubFormAdministrativeInformation()
         {
             InitializeComponent();
         }
 
-        private void label9_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void label5_Click(object sender, EventArgs e)
         {
 
         }

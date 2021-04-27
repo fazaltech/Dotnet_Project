@@ -100,6 +100,12 @@
   <ItemGroup>
     <Compile Include="Database\SqliteCommand.cs" />
     <Compile Include="Database\SQLiteDatabase.cs" />
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Babies_Reported.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,7 +142,28 @@
     <Compile Include="Model\villages.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubFormAdministrativeInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubFormAdministrativeInformation.Designer.cs">
+      <DependentUpon>SubFormAdministrativeInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubFormSectionB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubFormSectionB.Designer.cs">
+      <DependentUpon>SubFormSectionB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubFormTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubFormTemplate.Designer.cs">
+      <DependentUpon>SubFormTemplate.cs</DependentUpon>
+    </Compile>
     <Compile Include="SyncData.cs" />
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Babies_Reported.resx">
       <DependentUpon>Form_Babies_Reported.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +188,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SubFormAdministrativeInformation.resx">
+      <DependentUpon>SubFormAdministrativeInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubFormSectionB.resx">
+      <DependentUpon>SubFormSectionB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubFormTemplate.resx">
+      <DependentUpon>SubFormTemplate.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

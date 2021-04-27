@@ -39,8 +39,11 @@ namespace Dotnet_Project
                 DataVariables.Form_Login = this;
              
                 this.Hide();
-                Form_Data obj_main = new Form_Data();
-                obj_main.Show();
+                //Form_Data obj_main = new Form_Data();
+                //obj_main.Show();
+
+                FormMain form_main = new FormMain();
+                form_main.Show();
 
             }
             else if (user_name.Text == "dmu@aku" && user_password.Text == "aku?dmu")

@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace Dotnet_Project
 {
-    public partial class Form_Baseline : Form
+    public partial class SubFormTemplate : Form
     {
-        public Form_Baseline()
+        public SubFormTemplate()
         {
             InitializeComponent();
         }
 
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
