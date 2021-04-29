@@ -16,5 +16,29 @@ namespace Dotnet_Project
         {
             InitializeComponent();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SubFormSectionB_Scroll(object sender, ScrollEventArgs e)
+        {
+        }
+
+        private void SubFormSectionB_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

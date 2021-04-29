@@ -154,6 +154,66 @@
     <Compile Include="SubFormSectionB.Designer.cs">
       <DependentUpon>SubFormSectionB.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubFormSectionC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubFormSectionC.Designer.cs">
+      <DependentUpon>SubFormSectionC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubFormSectionC2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubFormSectionC2.Designer.cs">
+      <DependentUpon>SubFormSectionC2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubFormSectionD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubFormSectionD.Designer.cs">
+      <DependentUpon>SubFormSectionD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubFormSectionE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubFormSectionE.Designer.cs">
+      <DependentUpon>SubFormSectionE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubFormSectionE2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubFormSectionE2.Designer.cs">
+      <DependentUpon>SubFormSectionE2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubFormSectionF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubFormSectionF.Designer.cs">
+      <DependentUpon>SubFormSectionF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubFormSectionG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubFormSectionG.Designer.cs">
+      <DependentUpon>SubFormSectionG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubFormSectionG2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubFormSectionG2.Designer.cs">
+      <DependentUpon>SubFormSectionG2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubFormSectionG3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubFormSectionG3.Designer.cs">
+      <DependentUpon>SubFormSectionG3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubFormSectionG4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubFormSectionG4.Designer.cs">
+      <DependentUpon>SubFormSectionG4.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubFormTemplate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +253,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubFormSectionB.resx">
       <DependentUpon>SubFormSectionB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubFormSectionC.resx">
+      <DependentUpon>SubFormSectionC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubFormSectionC2.resx">
+      <DependentUpon>SubFormSectionC2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubFormSectionD.resx">
+      <DependentUpon>SubFormSectionD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubFormSectionE.resx">
+      <DependentUpon>SubFormSectionE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubFormSectionE2.resx">
+      <DependentUpon>SubFormSectionE2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubFormSectionF.resx">
+      <DependentUpon>SubFormSectionF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubFormSectionG.resx">
+      <DependentUpon>SubFormSectionG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubFormSectionG2.resx">
+      <DependentUpon>SubFormSectionG2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubFormSectionG3.resx">
+      <DependentUpon>SubFormSectionG3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubFormSectionG4.resx">
+      <DependentUpon>SubFormSectionG4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubFormTemplate.resx">
       <DependentUpon>SubFormTemplate.cs</DependentUpon>

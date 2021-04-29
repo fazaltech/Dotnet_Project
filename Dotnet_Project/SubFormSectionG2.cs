@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Dotnet_Project
+{
+    public partial class SubFormSectionG2 : Form
+    {
+        public SubFormSectionG2()
+        {
+            InitializeComponent();
+        }
+    }
+}

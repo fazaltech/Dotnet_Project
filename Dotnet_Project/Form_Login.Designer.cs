@@ -46,6 +46,7 @@
             this.user_name.Name = "user_name";
             this.user_name.Size = new System.Drawing.Size(184, 20);
             this.user_name.TabIndex = 0;
+            this.user_name.Text = "test1234";
             // 
             // user_password
             // 
@@ -53,6 +54,7 @@
             this.user_password.Name = "user_password";
             this.user_password.Size = new System.Drawing.Size(184, 20);
             this.user_password.TabIndex = 1;
+            this.user_password.Text = "test1234";
             this.user_password.UseSystemPasswordChar = true;
             // 
             // btn_download
