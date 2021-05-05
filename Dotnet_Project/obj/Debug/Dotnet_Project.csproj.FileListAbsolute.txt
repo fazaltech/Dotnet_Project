@@ -290,3 +290,9 @@ F:\C#\Fazal\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.FormMain.reso
 F:\C#\Fazal\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.SubFormAdministrativeInformation.resources
 F:\C#\Fazal\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.SubFormSectionB.resources
 F:\C#\Fazal\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.SubFormTemplate.resources
+E:\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.FormMain.resources
+E:\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.SubFormAdministrativeInformation.resources
+E:\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.SubFormSectionB.resources
+E:\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.SubFormTemplate.resources
+E:\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.SubFormSectionC.resources
+E:\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.SubFormSectionD.resources
