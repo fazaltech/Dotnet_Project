@@ -28,23 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pContainer = new System.Windows.Forms.Panel();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnEnd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.pContainer = new System.Windows.Forms.Panel();
             this.SuspendLayout();
-            // 
-            // pContainer
-            // 
-            this.pContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pContainer.AutoScroll = true;
-            this.pContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pContainer.Location = new System.Drawing.Point(12, 56);
-            this.pContainer.Name = "pContainer";
-            this.pContainer.Size = new System.Drawing.Size(1128, 491);
-            this.pContainer.TabIndex = 0;
             // 
             // btnNext
             // 
@@ -80,6 +68,16 @@
             this.label1.Text = "Form Entry Screen";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // pContainer
+            // 
+            this.pContainer.AutoScroll = true;
+            this.pContainer.AutoSize = true;
+            this.pContainer.Location = new System.Drawing.Point(12, 56);
+            this.pContainer.Name = "pContainer";
+            this.pContainer.Size = new System.Drawing.Size(1128, 500);
+            this.pContainer.TabIndex = 0;
+            this.pContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pContainer_Paint);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -99,10 +97,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pContainer;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnEnd;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel pContainer;
     }
 }

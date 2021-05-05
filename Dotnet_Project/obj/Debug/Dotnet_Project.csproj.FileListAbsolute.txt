@@ -289,5 +289,4 @@ F:\C#\Fazal\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.pdb
 F:\C#\Fazal\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.FormMain.resources
 F:\C#\Fazal\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.SubFormAdministrativeInformation.resources
 F:\C#\Fazal\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.SubFormSectionB.resources
-F:\C#\Fazal\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.Form1.resources
 F:\C#\Fazal\Dotnet_Project\Dotnet_Project\obj\Debug\Dotnet_Project.SubFormTemplate.resources

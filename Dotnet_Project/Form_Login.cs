@@ -42,7 +42,7 @@ namespace Dotnet_Project
                 //Form_Data obj_main = new Form_Data();
                 //obj_main.Show();
 
-                FormMain form_main = new FormMain();
+               FormMain form_main = new FormMain();
                 form_main.Show();
 
             }

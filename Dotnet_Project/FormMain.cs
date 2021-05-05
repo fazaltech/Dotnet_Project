@@ -24,12 +24,20 @@ namespace Dotnet_Project
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            SubFormAdministrativeInformation subfrmAdminInfo = new SubFormAdministrativeInformation() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            //SubFormAdministrativeInformation subfrmAdminInfo = new SubFormAdministrativeInformation() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            SubFormTemplate subfrmAdminInfo = new SubFormTemplate() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             this.pContainer.Controls.Add(subfrmAdminInfo);
+            pContainer.AutoScrollMinSize = new Size(0, subfrmAdminInfo.Height);
+            subfrmAdminInfo.FormBorderStyle = FormBorderStyle.None;
             subfrmAdminInfo.Show();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pContainer_Paint(object sender, PaintEventArgs e)
         {
 
         }
